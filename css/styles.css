@@ -1,0 +1,27 @@
+.row > * {
+  padding-top: 30px;
+}
+
+#profile-image {
+  width: 50%;
+}
+
+.thumbnail-image-container {
+  position: relative;
+  height: 225px;
+  overflow: hidden;
+}
+
+.thumbnail-image-center-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#hipster-image {
+  max-width: none;
+  height: 100%;
+  position: absolute;
+  left: 30%;
+  transform: translateX(-30%);
+}
