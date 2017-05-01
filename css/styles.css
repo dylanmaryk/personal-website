@@ -1,15 +1,90 @@
-.row > * {
-  padding-top: 30px;
+body {
+  background-color: #D6DFE8;
 }
 
-#profile-image {
-  width: 50%;
+h1, p, a, a:focus, a:hover {
+  font-family: "San Francisco";
+  font-weight: 400;
+  color: #444444;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+p {
+  font-size: 30px;
+}
+
+a {
+  font-size: 16px;
+}
+
+.container {
+  padding-left: 60px;
+}
+
+#topmost-element {
+  padding-top: 60px;
+}
+
+.social-btn {
+  display: inline-block;
+  margin-right: 18px;
+  width: 58px;
+  height: 58px;
+  color: white;
+  border-radius: 50%;
+  background-color: #444444;
+}
+
+.fa {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 58px;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
+  margin-right: 20px;
+  border: none;
+  background-color: inherit;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border: none;
+  border-bottom: 3px solid #36628E;
+  background-color: inherit;
 }
 
 .thumbnail-image-container {
   position: relative;
   height: 225px;
   overflow: hidden;
+}
+
+.thumbnail-info-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  transition: .5s;
+}
+
+.thumbnail-image-container:hover .thumbnail-info-container {
+  opacity: 0.8;
+}
+
+.thumbnail-caption {
+  font-size: 14px;
 }
 
 .thumbnail-image-center-vertical {
