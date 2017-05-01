@@ -64,13 +64,19 @@ a {
   overflow: hidden;
 }
 
-.thumbnail-info-container {
+.thumbnail-caption-container {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: white;
+  font-size: 14px;
+  text-transform: uppercase;
   opacity: 0;
   -webkit-transition: .5s;
   -moz-transition: .5s;
@@ -79,12 +85,8 @@ a {
   transition: .5s;
 }
 
-.thumbnail-image-container:hover .thumbnail-info-container {
+.thumbnail-image-container:hover .thumbnail-caption-container {
   opacity: 0.8;
-}
-
-.thumbnail-caption {
-  font-size: 14px;
 }
 
 .thumbnail-image-center-vertical {
