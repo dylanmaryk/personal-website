@@ -12,6 +12,7 @@ h1, p, a, a:focus, a:hover {
 
 h1 {
   font-size: 72px;
+  font-weight: bold;
 }
 
 p {
