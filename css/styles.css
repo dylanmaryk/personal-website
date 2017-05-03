@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
 body {
   background-color: #D6DFE8;
 }
 
 h1, p, a, a:focus, a:hover {
-  font-family: "San Francisco";
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #444444;
 }
