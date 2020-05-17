@@ -41,12 +41,17 @@ a {
   background-color: #444444;
 }
 
-.fa {
-  width: 100%;
+.social-btn > i > .fa-w-14, .social-btn > i > .fa-w-16 {
   height: 100%;
-  text-align: center;
   font-size: 30px;
-  line-height: 58px;
+}
+
+.social-btn > i > .fa-w-14 {
+  margin-left: 16px;
+}
+
+.social-btn > i > .fa-w-16 {
+  margin-left: 14px;
 }
 
 .nav-tabs > li > a, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
