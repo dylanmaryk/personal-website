@@ -96,11 +96,3 @@ a {
 .thumbnail-image-container:hover .thumbnail-caption-container {
   opacity: 0.8;
 }
-
-#hipster-image {
-  max-width: none;
-  height: 100%;
-  position: absolute;
-  left: 30%;
-  transform: translateX(-30%);
-}
