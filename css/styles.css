@@ -12,12 +12,6 @@
   overflow: hidden;
 }
 
-.thumbnail-image-center-vertical {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 #hipster-image {
   max-width: none;
   height: 100%;
