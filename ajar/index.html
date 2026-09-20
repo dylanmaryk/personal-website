@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajar — Your iPhone folds. This tells you how far.</title>
+<meta name="description" content="Ajar reads your folding iPhone's hinge and shows it in degrees, live. Underneath the number, one line of commentary that is rarely a compliment. There is no second feature.">
+<meta name="theme-color" content="#e6f5f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07181c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.png" sizes="any">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="canonical" href="https://maryk.uk/ajar/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maryk.uk/ajar/">
+<meta property="og:title" content="Ajar">
+<meta property="og:description" content="Your iPhone folds. This tells you how far. One large number, live from the hinge. There is no second feature.">
+<meta property="og:image" content="https://maryk.uk/ajar/icon.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="#top">
+      <img src="icon.png" alt="" width="30" height="30">
+      Ajar
+    </a>
+    <a class="store" href="https://apps.apple.com/app/id6813950894">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.5-3.6zM14.2 5.9c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 0 2.1-.5 2.7-1.3z"/></svg>
+      Download
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =============================== hero ============================= -->
+<section class="hero">
+  <div class="wrap">
+    <h1><span class="line">Your iPhone folds.</span> <span class="line">This tells you how far.</span></h1>
+    <p class="lede">One large number, live from the hinge, moving as you open and close. Underneath it, a single line about the angle you have settled on, which is rarely a compliment.</p>
+
+    <div class="actions">
+      <a class="store large" href="https://apps.apple.com/app/id6813950894">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.5-3.6zM14.2 5.9c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 0 2.1-.5 2.7-1.3z"/></svg>
+        Download on the App Store
+      </a>
+      <p class="requirement">iPhone · iOS 27 · Folding iPhone optional, see below</p>
+    </div>
+
+    <!-- The app, more or less, running in the page. -->
+    <div class="demo" id="stage">
+      <div class="readout">
+        <div class="fold" id="fold">
+          <svg viewBox="0 0 360 260" aria-hidden="true">
+            <path id="arc" fill="none" stroke="rgb(var(--ink))" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 6"></path>
+            <g stroke="rgb(var(--ink))" stroke-width="22" stroke-linecap="round">
+              <line id="panelA" x1="180" y1="236" x2="180" y2="236"></line>
+              <line id="panelB" x1="180" y1="236" x2="180" y2="236"></line>
+            </g>
+            <g stroke="#fff" stroke-opacity="0.28" stroke-width="10" stroke-linecap="round">
+              <line id="screenA"></line>
+              <line id="screenB"></line>
+            </g>
+            <circle cx="180" cy="236" r="11" fill="rgb(var(--ink))"></circle>
+            <circle cx="180" cy="236" r="3.7" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="2"></circle>
+          </svg>
+        </div>
+
+        <div class="figures">
+          <p class="degrees" id="degrees">90°</p>
+          <p class="quip">
+            <svg viewBox="0 0 24 24" aria-hidden="true" id="quipMark"><path d="M12 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 15.1 6.7 18l1.1-6L3.4 7.8l6-.8z"/></svg>
+            <span id="quipText">A perfect right angle. Frame it.</span>
+          </p>
+          <p class="roast" id="roast">A number your hinge already knew, now yours for a modest fee.</p>
+          <p class="sr-only" role="status" aria-live="polite" id="announce"></p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <p class="invented">
+          <strong>Entirely made up</strong>
+          <span>This website has no hinge either. Drag the fold, or set it here.</span>
+        </p>
+        <input type="range" id="slider" min="0" max="180" step="1" value="90"
+               aria-label="Hinge angle in degrees" aria-valuetext="90 degrees">
+        <div class="presets" id="presets"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= features =========================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What it does</p>
+      <h2>Reads the hinge. Prints the number. Stops.</h2>
+      <p>Everything below is the same feature, described six times.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h3.2l1.9-6.3c.2-.7 1.2-.7 1.4 0l3 10.4 2-5.6c.1-.3.4-.5.7-.5H21v2h-3.1l-2.6 7.3c-.3.7-1.2.7-1.4 0l-3-10.3-1.4 4.5c-.1.3-.4.5-.7.5H3z"/></svg></span>
+        <h3>Live from the hinge</h3>
+        <p>Your folding iPhone's real angle, in degrees, updating as you open and close it. Not an estimate.</p>
+      </div>
+
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 17.9a1.6 1.6 0 1 1 2-2.5l5.4-6.6a1.6 1.6 0 1 1 2.5-2l5.3 6.5a1.6 1.6 0 1 1-2 2.5L12.5 9.3z"/></svg></span>
+        <h3>Drawn from the side</h3>
+        <p>A profile of the fold, opening and closing along with the real thing, so the number and the shape always agree.</p>
+      </div>
+
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.2 0-1 .8-1.8 1.8-1.8H17a5 5 0 0 0 5-5c0-4.4-4.5-8-10-8zM6.5 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></span>
+        <h3>Colours that open with it</h3>
+        <p>The screen warms from a dormant indigo when shut, through teal and yellow, to a wide-awake orange when flat. This page does it too.</p>
+      </div>
+
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 15.1 6.7 18l1.1-6L3.4 7.8l6-.8z"/></svg></span>
+        <h3>A fuss over tidy angles</h3>
+        <p>Seven angles are treated as an occasion, with a better remark and a bit of haptic ceremony when the number lands on one.</p>
+      </div>
+
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.9 4.1L18 8l-4.1 1.9L12 14l-1.9-4.1L6 8l4.1-1.9zM18.5 14l.9 2 2 .9-2 .9-.9 2-.9-2-2-.9 2-.9zM6 15.5l.7 1.6 1.6.7-1.6.7L6 20.1l-.7-1.6-1.6-.7 1.6-.7z"/></svg></span>
+        <h3>A fresh line each time</h3>
+        <p>Written on device with Apple Intelligence, so nothing you do leaves your iPhone. Where that isn't offered, the app falls back to lines it shipped with, so there is always something unkind to read.</p>
+      </div>
+
+      <div class="card">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l4 4-1.4 1.4L13 6.3V15h-2V6.3L9.4 7.9 8 6.5zM5 11h3v2H6v7h12v-7h-2v-2h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/></svg></span>
+        <h3>Share cards, square or story</h3>
+        <p>Turn any angle into a card for people who did not ask to see it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ landmarks =========================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Angles worth a fuss</p>
+      <h2>Seven occasions.</h2>
+      <p>Pick one to send the fold there. The rest of the range is simply a number.</p>
+    </div>
+    <ul class="landmarks" id="landmarkList"></ul>
+  </div>
+</section>
+
+<!-- ========================= no folding iPhone ====================== -->
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">No folding iPhone?</p>
+      <h2>Then there is no hinge to read, and the app says so.</h2>
+      <p class="body">The reading is labelled <em>Entirely made up</em>, and you get a slider and a row of presets to set the angle yourself — exactly the controls you have been using on this page. Everything else works the same. It is not the real thing. It is close enough.</p>
+    </div>
+    <blockquote class="quote">
+      “Your iPhone folds. Now you can know exactly how far, to the degree, at all times. There is no second feature. We are as surprised as you are.”
+      <footer>— the App Store listing, being honest</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ========================== what it doesn't ======================= -->
+<section>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">What it does not do</p>
+      <h2>Nothing, thoroughly.</h2>
+      <p class="body">It reads the hinge, prints the number, says something unkind about it, and stops. There is no settings screen, because there is nothing to set.</p>
+      <p class="body">Built for iPhone, with VoiceOver labels throughout.</p>
+    </div>
+    <ul class="plain">
+      <li>account</li>
+      <li>sign-in</li>
+      <li>network requests</li>
+      <li>adverts</li>
+      <li>tracking</li>
+      <li>analytics</li>
+      <li>third-party SDKs</li>
+      <li>settings screen</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================= closing ============================ -->
+<section class="closing">
+  <div class="wrap">
+    <h2>Find out how far.</h2>
+    <p>It is one number. You are going to check it more often than you would like to admit.</p>
+    <a class="store large" href="https://apps.apple.com/app/id6813950894">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-.9-2.5-3.6zM14.2 5.9c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 0 2.1-.5 2.7-1.3z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="page">
+  <div class="wrap">
+    <span>Ajar</span>
+    <nav>
+      <a href="https://apps.apple.com/app/id6813950894">App Store</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ----------------------------------------------------------------
+     Palette — a port of HingePalette.swift.
+     ---------------------------------------------------------------- */
+
+  const STOPS = [
+    { at: 0,    rgb: [ 88,  86, 214] }, // systemIndigo
+    { at: 0.5,  rgb: [ 48, 176, 199] }, // systemTeal
+    { at: 0.75, rgb: [255, 204,   0] }, // systemYellow
+    { at: 1,    rgb: [255, 149,   0] }, // systemOrange
+  ];
+
+  const clamp01 = (value) => Math.min(Math.max(value, 0), 1);
+  const mix = (from, to, amount) => from.map((channel, i) => Math.round(channel + (to[i] - channel) * amount));
+
+  function ramp(openness) {
+    const amount = clamp01(openness);
+    const index = STOPS.findIndex((stop) => stop.at >= amount);
+    if (index <= 0) return STOPS[0].rgb;
+    const lower = STOPS[index - 1];
+    const upper = STOPS[index];
+    return mix(lower.rgb, upper.rgb, (amount - lower.at) / (upper.at - lower.at));
+  }
+
+  const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const label = () => (darkScheme.matches ? [255, 255, 255] : [0, 0, 0]);
+  const surface = () => (darkScheme.matches ? [0, 0, 0] : [255, 255, 255]);
+
+  const foreground = (openness) => mix(ramp(openness), label(), 0.28);
+  const onPlate = (openness) => mix(ramp(openness), label(), 0.55);
+  const wash = (openness) => mix(ramp(openness), surface(), 0.88);
+
+  const MESH_SPREAD = [-0.2, -0.1, 0, -0.05, 0.1, 0.2, 0.05, 0.2, 0.35];
+  const GRADIENT_SPREAD = 0.07;
+
+  function setPalette(openness) {
+    const root = document.documentElement.style;
+    MESH_SPREAD.forEach((delta, index) => {
+      root.setProperty(`--wash-${index + 1}`, wash(openness + delta).join(" "));
+    });
+    root.setProperty("--ink", foreground(openness).join(" "));
+    root.setProperty("--ink-top", foreground(openness - GRADIENT_SPREAD).join(" "));
+    root.setProperty("--ink-bottom", foreground(openness + GRADIENT_SPREAD).join(" "));
+    root.setProperty("--ink-plate", onPlate(openness).join(" "));
+  }
+
+  /* ----------------------------------------------------------------
+     Commentary — ports of HingeAngleLandmark, HingeStatus and
+     CannedHingeRoastWriter.
+     ---------------------------------------------------------------- */
+
+  const LANDMARKS = [
+    { key: "closed",     degrees: 0,   title: "Shut. Bold choice.",                     short: "Shut" },
+    { key: "halfRight",  degrees: 45,  title: "Half a right angle. Commitment issues.", short: "Half a right angle" },
+    { key: "rightAngle", degrees: 90,  title: "A perfect right angle. Frame it.",       short: "A perfect right angle" },
+    { key: "laptop",     degrees: 120, title: "Laptop mode. Now type something.",       short: "Laptop mode" },
+    { key: "reclined",   degrees: 135, title: "Reclined. Practically on holiday.",      short: "Reclined" },
+    { key: "nearlyFlat", degrees: 179, title: "One degree short. Agonising.",           short: "One degree short" },
+    { key: "flat",       degrees: 180, title: "Completely flat. Magnificent.",          short: "Completely flat" },
+  ];
+
+  const STATUS_SUMMARY = {
+    closed: "Shut. Riveting stuff.",
+    partiallyOpen: "Mid-fold. Gripping.",
+    fullyOpen: "Practically flat. Impressive.",
+  };
+
+  const STATUS_LINES = {
+    closed: [
+      "You paid actual money for an app to confirm your phone is shut.",
+      "Closed, which you could have checked by looking at it, for free.",
+      "Nothing to see here, and you bought a ticket anyway.",
+      "A folded phone, faithfully reported by software you own outright.",
+      "No effort at all from the hinge, and quite a lot from this app.",
+    ],
+    partiallyOpen: [
+      "Somewhere a bank statement records that you bought this.",
+      "A protractor would have cost less and asked fewer permissions.",
+      "Neither open nor shut, much like the case for buying this app.",
+      "Roughly a laptop, if the laptop did nothing but this.",
+      "A number your hinge already knew, now yours for a modest fee.",
+      "Held at an angle nobody asked about, answered anyway.",
+      "The hinge is undecided. The purchase, sadly, was final.",
+      "Somewhere between shut and useful, a range this app knows well.",
+      "Your hinge did the work. This app took the credit, and your money.",
+      "An angle, delivered exactly as advertised, which is the worrying part.",
+    ],
+    fullyOpen: [
+      "Fully open, like your wallet was when you bought this.",
+      "Flat as the return on this particular investment.",
+      "Completely open, delivered by an app whose entire job is this sentence.",
+      "Unfolded at last, and the app has nothing further to offer.",
+      "Maximum opening, minimum feature set.",
+    ],
+  };
+
+  const LANDMARK_LINES = {
+    closed: [
+      "Exactly shut, to the degree, for roughly the price of a coffee.",
+      "Dead on zero, the one reading you could have guessed for nothing.",
+    ],
+    halfRight: [
+      "Half a right angle, twice the regret.",
+      "Halfway to square, and you are paying by the app, not by the degree.",
+    ],
+    rightAngle: [
+      "A right angle, and now you have an app to prove it.",
+      "Perfectly square. Somewhere a geometry teacher remains unmoved.",
+    ],
+    laptop: [
+      "Laptop posture, without the laptop, or the work.",
+      "The angle of getting things done, spent entirely on this.",
+    ],
+    reclined: [
+      "Reclined far enough to forget what you spent on this.",
+      "An angle for lounging, measured by an app that does nothing else.",
+    ],
+    nearlyFlat: [
+      "So close to flat, and that last bit is the part you paid for.",
+      "One short. The app will not round up on your behalf.",
+    ],
+    flat: [
+      "Perfectly flat, and perfectly pointless to have confirmed.",
+      "Wide open, rather like the question of why you bought this.",
+    ],
+  };
+
+  const statusFor = (degrees) => (degrees < 5 ? "closed" : degrees < 170 ? "partiallyOpen" : "fullyOpen");
+  const landmarkFor = (degrees) => LANDMARKS.find((landmark) => landmark.degrees === degrees) || null;
+
+  let previousLine = null;
+
+  // A line for the angle, never the one just shown.
+  function lineFor(degrees) {
+    const landmark = landmarkFor(degrees);
+    const pool = (landmark ? LANDMARK_LINES[landmark.key] : []).concat(STATUS_LINES[statusFor(degrees)]);
+    const candidates = pool.filter((line) => line !== previousLine);
+    const choices = candidates.length ? candidates : pool;
+    previousLine = choices[Math.floor(Math.random() * choices.length)];
+    return previousLine;
+  }
+
+  /* ----------------------------------------------------------------
+     The fold — a port of HingeProfileView.swift.
+     ---------------------------------------------------------------- */
+
+  const PIVOT = { x: 180, y: 236 };
+  const PANEL_LENGTH = 164;
+  const ARC_RADIUS = PANEL_LENGTH * 0.45;
+
+  const node = (id) => document.getElementById(id);
+  const ui = {
+    arc: node("arc"),
+    panels: [node("panelA"), node("panelB")],
+    screens: [node("screenA"), node("screenB")],
+    degrees: node("degrees"),
+    quipText: node("quipText"),
+    quipMark: node("quipMark"),
+    roast: node("roast"),
+    announce: node("announce"),
+    slider: node("slider"),
+    presets: node("presets"),
+    stage: node("stage"),
+    fold: node("fold"),
+  };
+
+  const pointOnCircle = (degrees, radius) => {
+    const radians = (degrees * Math.PI) / 180;
+    return { x: PIVOT.x + Math.cos(radians) * radius, y: PIVOT.y + Math.sin(radians) * radius };
+  };
+
+  const lerp = (from, to, amount) => ({
+    x: from.x + (to.x - from.x) * amount,
+    y: from.y + (to.y - from.y) * amount,
+  });
+
+  function drawFold(degrees) {
+    const halfAngle = degrees / 2;
+
+    [-1, 1].forEach((direction, index) => {
+      const end = pointOnCircle(-90 + direction * halfAngle, PANEL_LENGTH);
+      const panel = ui.panels[index];
+      panel.setAttribute("x2", end.x.toFixed(2));
+      panel.setAttribute("y2", end.y.toFixed(2));
+
+      const start = lerp(PIVOT, end, 0.22);
+      const finish = lerp(PIVOT, end, 0.94);
+      const screen = ui.screens[index];
+      screen.setAttribute("x1", start.x.toFixed(2));
+      screen.setAttribute("y1", start.y.toFixed(2));
+      screen.setAttribute("x2", finish.x.toFixed(2));
+      screen.setAttribute("y2", finish.y.toFixed(2));
+    });
+
+    if (halfAngle > 1) {
+      const from = pointOnCircle(-90 - halfAngle, ARC_RADIUS);
+      const to = pointOnCircle(-90 + halfAngle, ARC_RADIUS);
+      const largeArc = halfAngle > 90 ? 1 : 0;
+      ui.arc.setAttribute(
+        "d",
+        `M ${from.x.toFixed(2)} ${from.y.toFixed(2)} A ${ARC_RADIUS} ${ARC_RADIUS} 0 ${largeArc} 1 ${to.x.toFixed(2)} ${to.y.toFixed(2)}`
+      );
+    } else {
+      ui.arc.removeAttribute("d");
+    }
+  }
+
+  /* ----------------------------------------------------------------
+     Wiring.
+     ---------------------------------------------------------------- */
+
+  let current = 90;
+
+  function render(value, { rewrite = true } = {}) {
+    const degrees = Math.round(Math.min(Math.max(value, 0), 180));
+    const moved = degrees !== current;
+    current = degrees;
+
+    setPalette(degrees / 180);
+    drawFold(degrees);
+
+    const landmark = landmarkFor(degrees);
+    const quip = landmark ? landmark.title : STATUS_SUMMARY[statusFor(degrees)];
+
+    ui.degrees.textContent = `${degrees}°`;
+    ui.quipText.textContent = quip;
+    ui.quipMark.style.display = landmark ? "" : "none";
+    if (rewrite && moved) ui.roast.textContent = lineFor(degrees);
+
+    ui.slider.value = String(degrees);
+    ui.slider.setAttribute("aria-valuetext", `${degrees} degrees`);
+    ui.slider.style.setProperty("--fill", `${(degrees / 180) * 100}%`);
+    ui.announce.textContent = `${degrees} degrees. ${quip}`;
+
+    for (const button of ui.presets.children) {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.degrees) === degrees));
+    }
+  }
+
+  // The row of presets, and the list of occasions, from one source.
+  for (const landmark of LANDMARKS) {
+    const preset = document.createElement("button");
+    preset.type = "button";
+    preset.dataset.degrees = String(landmark.degrees);
+    preset.textContent = `${landmark.degrees}°`;
+    preset.setAttribute("aria-label", `${landmark.degrees} degrees. ${landmark.short}.`);
+    preset.addEventListener("click", () => render(landmark.degrees));
+    ui.presets.appendChild(preset);
+
+    const item = document.createElement("li");
+    const jump = document.createElement("button");
+    jump.type = "button";
+    jump.innerHTML = '<span class="deg"></span><span class="what"></span>';
+    jump.querySelector(".deg").textContent = `${landmark.degrees}°`;
+    jump.querySelector(".what").textContent = landmark.title;
+    jump.addEventListener("click", () => {
+      render(landmark.degrees);
+      ui.stage.scrollIntoView({ block: "center", behavior: "smooth" });
+    });
+    item.appendChild(jump);
+    node("landmarkList").appendChild(item);
+  }
+
+  ui.slider.addEventListener("input", () => render(Number(ui.slider.value)));
+
+  // Dragging the fold: the angle comes from the pointer's position
+  // around the pivot, so either half can be grabbed.
+  let dragging = false;
+
+  function angleFromPointer(event) {
+    const box = ui.fold.getBoundingClientRect();
+    const scale = box.width / 360;
+    const x = (event.clientX - box.left) / scale;
+    const y = (event.clientY - box.top) / scale;
+    const halfAngle = (Math.atan2(Math.abs(x - PIVOT.x), Math.max(PIVOT.y - y, 0.0001)) * 180) / Math.PI;
+    return halfAngle * 2;
+  }
+
+  ui.fold.addEventListener("pointerdown", (event) => {
+    dragging = true;
+    ui.fold.setPointerCapture(event.pointerId);
+    render(angleFromPointer(event));
+    event.preventDefault();
+  });
+
+  ui.fold.addEventListener("pointermove", (event) => {
+    if (dragging) render(angleFromPointer(event));
+  });
+
+  const endDrag = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    if (ui.fold.hasPointerCapture(event.pointerId)) ui.fold.releasePointerCapture(event.pointerId);
+  };
+  ui.fold.addEventListener("pointerup", endDrag);
+  ui.fold.addEventListener("pointercancel", endDrag);
+
+  darkScheme.addEventListener("change", () => render(current, { rewrite: false }));
+
+  render(90, { rewrite: false });
+})();
+</script>
+</body>
+</html>
